@@ -5,6 +5,12 @@
 
 int main(int argc, char *argv[])
 {
-	
+	RtspService *pRtspService = GetRtspServiceInstance();
+	pRtspService->Start();
+	while(1)
+	{
+		usleep(10000);
+		continue;
+	}
 	return 0;
 }

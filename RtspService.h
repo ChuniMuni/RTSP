@@ -18,10 +18,14 @@ public:
 public:
 	//Get the Video stream
 	void OnRun();
+	void OnRtspVideoData(unsigned char *pData, int len, int nKeyFrame, unsigned int nTimeStamp);
+	void OnRtspJPEGData(unsigned char *pData, int len, int nKeyFrame, unsigned int nTimeStamp);
+	void OnRtspMPEG4Data(unsigned char *pData, int len, int nKeyFrame, unsigned int nTimeStamp);
 	void Start();
 	void Stop();
 	void SetAuthInfo(bool bEnable, char *pUserName, char *pPassword);
 	static void *OnThread(void *pData);
+	void SetParams(int nAudioEnable, int nEncType, int nFramerate, int nBitrate, int nWidth, int nHeight, int nQuality);
 
 private:
 	pthread_t m_tid;
